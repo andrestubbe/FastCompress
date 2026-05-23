@@ -1,4 +1,4 @@
-# FastCompress — Ultra-Fast Native Compression for Java [v0.1.0]
+﻿# FastCompress â€” Ultra-Fast Native Compression for Java [v0.1.0]
 
 **A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput and SIMD-accelerated algorithms.**
 
@@ -12,7 +12,7 @@
 **FastCompress** delivers elite compression performance by leveraging native SIMD instructions and optimized memory handling. Built for high-throughput data pipelines, real-time telemetry, and agentic state management.
 
 ```java
-// Quick Start — SIMD Hashing
+// Quick Start â€” SIMD Hashing
 byte[] data = ...; 
 long hash = FastCompress.hash64(data); // 15 GB/s throughput
 ```
@@ -30,14 +30,14 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 ---
 
 ## Key Features
--   **⚡ SIMD Accelerated** — LZ4 and xxHash paths tuned for AVX2/AVX-512.
--   **🔍 Change Detection** — Sub-millisecond hashing for visual diffing.
--   **🚀 Zero-Copy** — Direct memory access via JNI critical sections.
--   **📦 Minimal Footprint** — Designed for low-latency agentic substrate.
+-   **âš¡ SIMD Accelerated** â€” LZ4 and xxHash paths tuned for AVX2/AVX-512.
+-   **ðŸ” Change Detection** â€” Sub-millisecond hashing for visual diffing.
+-   **ðŸš€ Zero-Copy** â€” Direct memory access via JNI critical sections.
+-   **ðŸ“¦ Minimal Footprint** â€” Designed for low-latency agentic substrate.
 
 ---
 
-## 📊 Performance (v0.1.0 Alpha)
+## ðŸ“Š Performance (v0.1.0 Alpha)
 *Measured on Modern x64 Hardware.*
 
 | Operation | Standard Java | FastCompress Native | Speedup |
@@ -54,9 +54,9 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 
 | Method | Description | Documentation |
 |--------|-------------|---------------|
-| `hash64(data)` | High-speed xxHash64 checksum. | [Reference →](REFERENCE.md#hashing) |
-| `compressLZ4(...)` | Fastest block compression. | [Reference →](REFERENCE.md#lz4) |
-| `compressZstd(...)` | High-efficiency compression. | [Reference →](REFERENCE.md#zstd) |
+| `hash64(data)` | High-speed xxHash64 checksum. | [Reference â†’](REFERENCE.md#hashing) |
+| `compressLZ4(...)` | Fastest block compression. | [Reference â†’](REFERENCE.md#lz4) |
+| `compressZstd(...)` | High-efficiency compression. | [Reference â†’](REFERENCE.md#zstd) |
 
 ---
 
@@ -65,7 +65,7 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 ### Option 1: Maven (Recommended)
 Add the JitPack repository and the dependencies to your `pom.xml`:
 
-`xml
+```xml
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -80,6 +80,7 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
         <artifactId>fastcompress</artifactId>
         <version>v0.1.0</version>
     </dependency>
+
     <!-- FastCore (Required Native Loader) -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
@@ -87,19 +88,19 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
         <version>v0.1.0</version>
     </dependency>
 </dependencies>
-`
+```
 
 ### Option 2: Gradle (via JitPack)
-`groovy
+```groovy
 repositories {
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'com.github.andrestubbe:.1.0'
+    implementation 'com.github.andrestubbe:fastcompress:v0.1.0'
     implementation 'com.github.andrestubbe:fastcore:v0.1.0'
 }
-`
+```
 
 ### Option 3: Direct Download (No Build Tool)
 Download the latest JARs directly to add them to your classpath:
@@ -113,8 +114,8 @@ Download the latest JARs directly to add them to your classpath:
 
 ## Hero Demos
 See the `examples/` directory for high-speed races:
--   **[HashRace.java](examples/src/main/java/fastcompress/HashRace.java)** — 10GB Data Checksum Battle.
--   **[CompressRace.java](examples/src/main/java/fastcompress/CompressRace.java)** — LZ4 vs GZIP Throughput.
+-   **[HashRace.java](examples/src/main/java/fastcompress/HashRace.java)** â€” 10GB Data Checksum Battle.
+-   **[CompressRace.java](examples/src/main/java/fastcompress/CompressRace.java)** â€” LZ4 vs GZIP Throughput.
 
 ---
 
@@ -126,10 +127,10 @@ See the `examples/` directory for high-speed races:
 ---
 
 ## License
-MIT License — See [LICENSE](LICENSE) file for details.
+MIT License â€” See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Part of the FastJava Ecosystem** — *Making the JVM faster.*
+**Part of the FastJava Ecosystem** â€” *Making the JVM faster.*
 
-Made with ⚡ by Andre Stubbe
+Made with âš¡ by Andre Stubbe
