@@ -62,23 +62,54 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 
 ## Installation
 
-### Maven (JitPack)
-```xml
+### Option 1: Maven (Recommended)
+Add the JitPack repository and the dependencies to your `pom.xml`:
+
+`xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
 <dependencies>
+    <!-- FastCompress Library -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>fastcompress</artifactId>
         <version>v0.1.0</version>
     </dependency>
+    <!-- FastCore (Required Native Loader) -->
     <dependency>
         <groupId>com.github.andrestubbe</groupId>
         <artifactId>fastcore</artifactId>
         <version>v0.1.0</version>
     </dependency>
 </dependencies>
-```
+`
 
----
+### Option 2: Gradle (via JitPack)
+`groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.andrestubbe:.1.0'
+    implementation 'com.github.andrestubbe:fastcore:v0.1.0'
+}
+`
+
+### Option 3: Direct Download (No Build Tool)
+Download the latest JARs directly to add them to your classpath:
+
+1. 📦 **[fastcompress-v0.1.0.jar](https://github.com/andrestubbe/FastCompress/releases/download/v0.1.0/fastcompress-v0.1.0.jar)** (The Core Library)
+2. ⚙️ **[fastcore-v0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/v0.1.0/fastcore-v0.1.0.jar)** (The Mandatory Native Loader)
+
+> [!IMPORTANT]
+> All JARs must be in your classpath for the native JNI calls to function correctly.
+
 
 ## Hero Demos
 See the `examples/` directory for high-speed races:
