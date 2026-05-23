@@ -2,7 +2,7 @@
 
 **A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput and SIMD-accelerated algorithms.**
 
-[![Status](https://img.shields.io/badge/status-v0.1.0--alpha-orange.svg)]()
+[![Status](https://img.shields.io/badge/status-v0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastCompress/releases/tag/v0.1.0)
 [![Java](https://img.shields.io/badge/Java-17+-blue.svg)](https://www.java.com)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010+-lightgrey.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
