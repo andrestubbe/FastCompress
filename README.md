@@ -6,7 +6,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010+-lightgrey.svg)]()
 [![JitPack](https://img.shields.io/badge/JitPack-ready-green.svg)](https://jitpack.io/#andrestubbe)
 
-**A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput and
+**⚡ A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput
+and
 SIMD-accelerated algorithms.**
 
 **FastCompress** delivers elite compression performance by leveraging native SIMD instructions and optimized memory
@@ -138,8 +139,19 @@ See the `examples/` directory for high-speed races:
 ## Documentation
 
 * **[REFERENCE.md](REFERENCE.md)**: JNI contracts and CPU fallback rules.
+* **[REFERENCE.md](REFERENCE.md)**: Full API descriptions, border configurations, and codepoint index.
 * **[PHILOSOPHIE.md](PHILOSOPHIE.md)**: The "Zero-Copy" philosophy.
 * **[ROADMAP.md](ROADMAP.md)**: Future features and AVX-512 plans.
+
+---
+
+## Platform Support
+
+| Platform      | Status            |
+|---------------|-------------------|
+| Windows 10/11 | ✅ Fully Supported |
+| Linux         | 🚧 Planned        |
+| macOS         | 🚧 Planned        |
 
 ---
 
@@ -149,6 +161,14 @@ MIT License — See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Part of the FastJava Ecosystem** — *Making the JVM faster.*
+## Related Projects
 
-Made with ⚡ by Andre Stubbe
+- [FastFileIndex](https://github.com/andrestubbe/FastFileIndex) - Binary file indexing with mmap support
+- [FastFileSearch](https://github.com/andrestubbe/FastFileSearch) - Prefix Trie, N-Gram index, and Ranking engine
+- [FastFileWatch](https://github.com/andrestubbe/FastFileWatch) - USN Journal-based live file monitoring
+- [FastCore](https://github.com/andrestubbe/FastCore) - Unified JNI loader and platform abstraction
+
+---
+
+**Part of the FastJava Ecosystem** — *Making the JVM faster. Small package. Maximum speed. Zero bloat. 🚀📋*
+
