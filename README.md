@@ -15,12 +15,6 @@ handling. Built for high-throughput data pipelines, real-time telemetry, and age
 
 [![FastFileIndex Showcase](docs/screenshot.png)](https://www.youtube.com/watch?v=BZsqQl7WqWk)
 
-```java
-// Quick Start — SIMD Hashing
-byte[] data = ...;
-long hash = FastCompress.hash64(data); // 15 GB/s throughput
-```
-
 ---
 
 ## Table of Contents
@@ -33,6 +27,14 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
 - [License](#license)
+
+---
+
+```java
+// Quick Start — SIMD Hashing
+byte[] data = ...;
+long hash = FastCompress.hash64(data); // 15 GB/s throughput
+```
 
 ---
 
