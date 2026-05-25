@@ -8,15 +8,19 @@
 - [ ] **Basic JNI Bridge**: Support for `byte[]` and `DirectByteBuffer`.
 - [ ] **Initial Benchmarks**: Comparison vs `java.util.zip.CRC32` and `Deflater`.
 
-## 🟡 v0.2.0: Optimization & Zstd
-- [ ] **Zstandard Integration**: High-ratio compression path.
-- [ ] **AVX-512 Path**: Specialized hashing optimizations for Intel/AMD chips.
-- [ ] **FastIO Integration**: Streamlined pipelines for file-based compression.
+## 🟡 v0.2.0: FastIO Hardening & Foundation
+- [ ] **FastIO Substrate**: Complete FastIO hardening (Async I/O, IoRing support)
+- [ ] **Package Flattening**: Migrate from `io.github.andrestubbe.fastcompress` to `fastcompress.*`
+- [ ] **Premium Documentation**: PHILOSOPHIE.md (SIMD Compression & Hashing), REFERENCE.md (LZ4, Zstd, xxHash contracts)
+- [ ] **Hero Demo**: Create "1GB Read/Write Race" demo for FastIO
 
-## 🟠 v0.5.0: Advanced Streaming
-- [ ] **Streaming API**: Native-backed `InputStream`/`OutputStream` wrappers.
-- [ ] **Dictionary Training**: Support for Zstd dictionaries to optimize small JSON states.
-- [ ] **ARM NEON Port**: Parity for Apple Silicon.
+## 🟠 v0.5.0: Core Implementation (Nitro Engine)
+- [ ] **Native Backend**: Integrate LZ4 (Raw C + SIMD), Zstandard (zstd), xxHash (AVX2/AVX-512)
+- [ ] **Zero-Copy JNI**: Implement `GetPrimitiveArrayCritical` paths and `DirectByteBuffer` native pointer access
+- [ ] **Performance Benchmarks**: JMH micro-benchmarks vs `java.util.zip`
+- [ ] **Hero Demo**: Real-Time Screenshot Diffing @ 10GB/s
+- [ ] **Streaming API**: Native-backed `InputStream`/`OutputStream` wrappers
+- [ ] **Dictionary Training**: Support for Zstd dictionaries to optimize small JSON states
 
 ## 🔴 v1.0.0: Production Hardening
 - [ ] **Stress Testing**: Long-running memory leak and stability audits.
