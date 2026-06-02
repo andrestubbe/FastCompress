@@ -61,7 +61,7 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 | **Compression** (1GB) | ~2200 ms (GZIP) | **~240 ms** (LZ4)     | **9.1x** |
 
 > [!NOTE]
-> Read the full performance manifest in **[PHILOSOPHIE.md](./PHILOSOPHIE.md)**.
+> Read the full performance manifest in **[PHILOSOPHIE.md](docs/PHILOSOPHIE.md)**.
 
 ---
 
@@ -69,9 +69,9 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 
 | Method              | Description                   | Documentation                       |
 |---------------------|-------------------------------|-------------------------------------|
-| `hash64(data)`      | High-speed xxHash64 checksum. | [Reference →](REFERENCE.md#hashing) |
-| `compressLZ4(...)`  | Fastest block compression.    | [Reference →](REFERENCE.md#lz4)     |
-| `compressZstd(...)` | High-efficiency compression.  | [Reference →](REFERENCE.md#zstd)    |
+| `hash64(data)`      | High-speed xxHash64 checksum. | [Reference →](docs/REFERENCE.md#hashing) |
+| `compressLZ4(...)`  | Fastest block compression.    | [Reference →](docs/REFERENCE.md#lz4)     |
+| `compressZstd(...)` | High-efficiency compression.  | [Reference →](docs/REFERENCE.md#zstd)    |
 
 ---
 
@@ -144,10 +144,10 @@ See the `examples/` directory for high-speed races:
 
 ## Documentation
 
-* **[REFERENCE.md](REFERENCE.md)**: JNI contracts and CPU fallback rules.
-* **[REFERENCE.md](REFERENCE.md)**: Full API descriptions, border configurations, and codepoint index.
-* **[PHILOSOPHIE.md](PHILOSOPHIE.md)**: The "Zero-Copy" philosophy.
-* **[ROADMAP.md](ROADMAP.md)**: Future features and AVX-512 plans.
+* **[REFERENCE.md](docs/REFERENCE.md)**: JNI contracts and CPU fallback rules.
+* **[REFERENCE.md](docs/REFERENCE.md)**: Full API descriptions, border configurations, and codepoint index.
+* **[PHILOSOPHIE.md](docs/PHILOSOPHIE.md)**: The "Zero-Copy" philosophy.
+* **[ROADMAP.md](docs/ROADMAP.md)**: Future features and AVX-512 plans.
 
 ---
 
