@@ -1,6 +1,6 @@
-# FastCompress v0.1.0 [ALPHA] � Ultra-Fast Native Compression for Java
+# FastCompress 0.1.0 [ALPHA]  Ultra-Fast Native Compression for Java
 
-[![Status](https://img.shields.io/badge/status-v0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastCompress/releases/tag/v0.1.0)
+[![Status](https://img.shields.io/badge/status-0.1.0-brightgreen.svg)](https://github.com/andrestubbe/FastCompress/releases/tag/0.1.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-17+-blue.svg)](https://www.java.com)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010+-lightgrey.svg)]()
@@ -8,7 +8,7 @@
 
 ---
 
-**? A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput
+**âš¡ A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput
 and
 SIMD-accelerated algorithms.**
 
@@ -35,7 +35,7 @@ handling. Built for high-throughput data pipelines, real-time telemetry, and age
 ---
 
 ```java
-// Quick Start � SIMD Hashing
+// Quick Start  SIMD Hashing
 byte[] data = ...;
 long hash = FastCompress.hash64(data); // 15 GB/s throughput
 ```
@@ -44,14 +44,14 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 
 ## Key Features
 
-- **? SIMD Accelerated** � LZ4 and xxHash paths tuned for AVX2/AVX-512.
-- **?? Change Detection** � Sub-millisecond hashing for visual diffing.
-- **?? Zero-Copy** � Direct memory access via JNI critical sections.
-- **?? Minimal Footprint** � Designed for low-latency agentic substrate.
+- **? SIMD Accelerated**  LZ4 and xxHash paths tuned for AVX2/AVX-512.
+- **ðŸš€ Change Detection**  Sub-millisecond hashing for visual diffing.
+- **ðŸš€ Zero-Copy**  Direct memory access via JNI critical sections.
+- **ðŸš€ Minimal Footprint**  Designed for low-latency agentic substrate.
 
 ---
 
-## ?? Performance (v0.1.0 Alpha)
+## ðŸš€ Performance (0.1.0 Alpha)
 
 *Measured on Modern x64 Hardware.*
 
@@ -95,14 +95,14 @@ Add the JitPack repository and the dependencies to your `pom.xml`:
 <dependency>
     <groupId>com.github.andrestubbe</groupId>
     <artifactId>fastcompress</artifactId>
-    <version>v0.1.0</version>
+    <version>0.1.0</version>
 </dependency>
 
 <!-- FastCore (Required Native Loader) -->
 <dependency>
     <groupId>com.github.andrestubbe</groupId>
     <artifactId>fastcore</artifactId>
-    <version>v0.1.0</version>
+    <version>0.1.0</version>
 </dependency>
 </dependencies>
 ```
@@ -115,8 +115,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.andrestubbe:fastcompress:v0.1.0'
-    implementation 'com.github.andrestubbe:fastcore:v0.1.0'
+    implementation 'com.github.andrestubbe:fastcompress:0.1.0'
+    implementation 'com.github.andrestubbe:fastcore:0.1.0'
 }
 ```
 
@@ -124,10 +124,10 @@ dependencies {
 
 Download the latest JARs directly to add them to your classpath:
 
-1. ?? *
-   *[fastcompress-v0.1.0.jar](https://github.com/andrestubbe/FastCompress/releases/download/v0.1.0/fastcompress-v0.1.0.jar)
+1. ðŸš€ *
+   *[fastcompress-0.1.0.jar](https://github.com/andrestubbe/FastCompress/releases/download/0.1.0/fastcompress-0.1.0.jar)
    ** (The Core Library)
-2. ?? **[fastcore-v0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/v0.1.0/fastcore-v0.1.0.jar)** (
+2. ðŸš€ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (
    The Mandatory Native Loader)
 
 > [!IMPORTANT]
@@ -137,8 +137,8 @@ Download the latest JARs directly to add them to your classpath:
 
 See the `examples/` directory for high-speed races:
 
-- **[HashRace.java](examples/src/main/java/fastcompress/HashRace.java)** � 10GB Data Checksum Battle.
-- **[CompressRace.java](examples/src/main/java/fastcompress/CompressRace.java)** � LZ4 vs GZIP Throughput.
+- **[HashRace.java](examples/src/main/java/fastcompress/HashRace.java)**  10GB Data Checksum Battle.
+- **[CompressRace.java](examples/src/main/java/fastcompress/CompressRace.java)**  LZ4 vs GZIP Throughput.
 
 ---
 
@@ -156,14 +156,14 @@ See the `examples/` directory for high-speed races:
 | Platform      | Status            |
 |---------------|-------------------|
 | Windows 10/11 | ? Fully Supported |
-| Linux         | ?? Planned        |
-| macOS         | ?? Planned        |
+| Linux         | ðŸš€ Planned        |
+| macOS         | ðŸš€ Planned        |
 
 ---
 
 ## License
 
-MIT License � See [LICENSE](LICENSE) file for details.
+MIT License  See [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -176,5 +176,5 @@ MIT License � See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Part of the FastJava Ecosystem** � *Making the JVM faster. Small package. Maximum speed. Zero bloat. ????*
+**Part of the FastJava Ecosystem**  *Making the JVM faster. Small package. Maximum speed. Zero bloat. ðŸš€ðŸš€*
 
