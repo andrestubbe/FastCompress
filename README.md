@@ -8,9 +8,7 @@
 
 ---
 
-**âš¡ A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput
-and
-SIMD-accelerated algorithms.**
+**⚡ A high-performance native compression and hashing module for the FastJava ecosystem. Optimized for raw throughput and SIMD-accelerated algorithms.**
 
 **FastCompress** delivers elite compression performance by leveraging native SIMD instructions and optimized memory
 handling. Built for high-throughput data pipelines, real-time telemetry, and agentic state management.
@@ -44,14 +42,14 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 
 ## Key Features
 
-- **? SIMD Accelerated**  LZ4 and xxHash paths tuned for AVX2/AVX-512.
-- **ðŸš€ Change Detection**  Sub-millisecond hashing for visual diffing.
-- **ðŸš€ Zero-Copy**  Direct memory access via JNI critical sections.
-- **ðŸš€ Minimal Footprint**  Designed for low-latency agentic substrate.
+- **⚙️ SIMD Accelerated**: LZ4 and xxHash paths tuned for AVX2/AVX-512.
+- **🔍 Change Detection**: Sub-millisecond hashing for visual diffing.
+- **📥 Zero-Copy**: Direct memory access via JNI critical sections.
+- **📦 Minimal Footprint**: Designed for low-latency agentic substrate.
 
 ---
 
-## ðŸš€ Performance (0.1.0 Alpha)
+## 📊 Performance (0.1.0 Alpha)
 
 *Measured on Modern x64 Hardware.*
 
@@ -69,9 +67,9 @@ long hash = FastCompress.hash64(data); // 15 GB/s throughput
 
 | Method              | Description                   | Documentation                       |
 |---------------------|-------------------------------|-------------------------------------|
-| `hash64(data)`      | High-speed xxHash64 checksum. | [Reference ?](docs/REFERENCE.md#hashing) |
-| `compressLZ4(...)`  | Fastest block compression.    | [Reference ?](docs/REFERENCE.md#lz4)     |
-| `compressZstd(...)` | High-efficiency compression.  | [Reference ?](docs/REFERENCE.md#zstd)    |
+| `hash64(data)`      | High-speed xxHash64 checksum. | [Reference 📖](docs/REFERENCE.md#hashing) |
+| `compressLZ4(...)`  | Fastest block compression.    | [Reference 📖](docs/REFERENCE.md#lz4)     |
+| `compressZstd(...)` | High-efficiency compression.  | [Reference 📖](docs/REFERENCE.md#zstd)    |
 
 ---
 
@@ -124,11 +122,8 @@ dependencies {
 
 Download the latest JARs directly to add them to your classpath:
 
-1. ðŸš€ *
-   *[fastcompress-0.1.0.jar](https://github.com/andrestubbe/FastCompress/releases/download/0.1.0/fastcompress-0.1.0.jar)
-   ** (The Core Library)
-2. ðŸš€ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (
-   The Mandatory Native Loader)
+1. 📦 **[fastcompress-0.1.0.jar](https://github.com/andrestubbe/FastCompress/releases/download/0.1.0/fastcompress-0.1.0.jar)** (The Core Library)
+2. ⚙️ **[fastcore-0.1.0.jar](https://github.com/andrestubbe/FastCore/releases/download/0.1.0/fastcore-0.1.0.jar)** (The Mandatory Native Loader)
 
 > [!IMPORTANT]
 > All JARs must be in your classpath for the native JNI calls to function correctly.
@@ -155,9 +150,9 @@ See the `examples/` directory for high-speed races:
 
 | Platform      | Status            |
 |---------------|-------------------|
-| Windows 10/11 | ? Fully Supported |
-| Linux         | ðŸš€ Planned        |
-| macOS         | ðŸš€ Planned        |
+| Windows 10/11 | ✅ Fully Supported |
+| Linux         | 🔗 Planned        |
+| macOS         | 🔗 Planned        |
 
 ---
 
@@ -176,5 +171,5 @@ MIT License  See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Part of the FastJava Ecosystem**  *Making the JVM faster. Small package. Maximum speed. Zero bloat. ðŸš€ðŸš€*
+**Part of the FastJava Ecosystem** — *Making the JVM faster. Small package. Maximum speed. Zero bloat. 🚀📋*
 
