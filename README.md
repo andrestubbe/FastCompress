@@ -12,7 +12,7 @@
 
 `FastCompress` provides native C++ AVX2 vector processing for Java data compression, enabling 8+ Million compression operations per second on off-heap memory buffers with zero Garbage Collection pressure.
 
-![Showcase](docs/screenshot.png)
+![Showcase](https://raw.githubusercontent.com/andrestubbe/FastCompress/main/docs/screenshot.png)
 
 ---
 
