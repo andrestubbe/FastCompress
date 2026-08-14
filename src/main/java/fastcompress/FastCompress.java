@@ -46,9 +46,31 @@ public final class FastCompress {
     public static native int compressLZ4(byte[] src, int srcPos, int length, byte[] dest, int destPos);
 
     /**
+     * Convenient overload: Compresses a byte array using LZ4 and returns compressed buffer.
+     */
+    public static byte[] compressLZ4(byte[] src) {
+        int maxCompressedSize = getLZ4MaxCompressedSize(src.length);
+        byte[] dest = new byte[maxCompressedSize];
+        int compressedLen = compressLZ4(src, 0, src.length, dest, 0);
+        if (compressedLen < 0) return src;
+        byte[] result = new byte[compressedLen];
+        System.arraycopy(dest, 0, result, 0, compressedLen);
+        return result;
+    }
+
+    /**
      * Decompresses an LZ4 compressed block.
      */
     public static native int decompressLZ4(byte[] src, int srcPos, int length, byte[] dest, int destPos, int targetSize);
+
+    /**
+     * Convenient overload: Decompresses an LZ4 compressed byte array into targetSize output buffer.
+     */
+    public static byte[] decompressLZ4(byte[] src, int targetSize) {
+        byte[] dest = new byte[targetSize];
+        decompressLZ4(src, 0, src.length, dest, 0, targetSize);
+        return dest;
+    }
 
     /**
      * Returns the maximum possible size that an LZ4 compressed block can take for a given input size.

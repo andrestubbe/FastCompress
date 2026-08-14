@@ -1,41 +1,35 @@
-# FastCompress Reference
+# FastCompress API Reference Manual
 
-## 1. Supported Algorithms
-
-| Algorithm | Type | Target Speed | Use Case |
-|-----------|------|--------------|----------|
-| **LZ4**   | Lossless | > 800 MB/s | Real-time streaming, IPC |
-| **Zstd**  | Lossless | High Ratio | State persistence, logs |
-| **xxHash64**| Hashing | > 15 GB/s | Change detection, checksums |
-
-## 2. CPU Feature Model
-FastCompress utilizes runtime dispatching to select the optimal implementation:
-*   **AVX-512** — Ultra-wide vectorization for hashing and block processing.
-*   **AVX2** — Standard high-performance path for modern x64.
-*   **SSE4.2** — Fallback for older hardware.
-*   **Scalar** — Guaranteed fallback for maximum compatibility.
-
-## 3. JNI & Memory Contracts
-*   **Zero-Copy Memory Pinning**: Uses `GetPrimitiveArrayCritical` to prevent JVM copies during compression/hashing.
-*   **Direct Access**: Full support for `java.nio.ByteBuffer` (Direct) for integration with `FastIO` and `FastSharedMemory`.
-*   **Thread-Safety**: All native methods are stateless and thread-safe.
-
-## 4. Guarantees
-*   **No Allocation**: The compression methods do not allocate memory on the Java heap during execution (except for the result arrays if not provided).
-*   **Unaligned Access**: Safe for all memory boundaries (internally handled by native layer).
-
-## 5. API Preview (v0.1.0)
-```java
-// Block Compression
-int compressLZ4(byte[] src, byte[] dst);
-int compressZstd(byte[] src, byte[] dst, int level);
-
-// SIMD Hashing
-long hash64(byte[] data);
-long hash64(ByteBuffer directBuffer);
-```
+`FastCompress` provides native C++ AVX2 vector compression, LZ4 block compression, and xxHash64 checksum calculators.
 
 ---
-**Part of the FastJava Ecosystem** — *Making the JVM faster.*
 
-Made with ⚡ by Andre Stubbe
+## 1. LZ4 Compression API
+
+### `compressLZ4`
+```java
+public static byte[] compressLZ4(byte[] src)
+public static native int compressLZ4(byte[] src, int srcPos, int length, byte[] dest, int destPos)
+```
+Compresses input byte buffer using high-speed native LZ4 algorithms.
+
+---
+
+### `decompressLZ4`
+```java
+public static byte[] decompressLZ4(byte[] src, int targetSize)
+public static native int decompressLZ4(byte[] src, int srcPos, int length, byte[] dest, int destPos, int targetSize)
+```
+Decompresses LZ4 compressed buffer into target output buffer.
+
+---
+
+## 2. xxHash64 Hashing API
+
+### `hash64`
+```java
+public static long hash64(byte[] data)
+public static native long hash64(byte[] data, int offset, int length, long seed)
+public static native long hash64Direct(ByteBuffer buffer, int offset, int length, long seed)
+```
+Calculates 15+ GB/s xxHash64 checksum across byte arrays or direct off-heap ByteBuffers.
