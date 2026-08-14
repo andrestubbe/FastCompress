@@ -1,62 +1,65 @@
 @echo off
-setlocal EnableDelayedExpansion
+setlocal enabledelayedexpansion
 
-REM FastCompress Native DLL Build Script for Windows
-REM Aligned with FastJava Premium Standards (see FastBytes)
+echo ========================================
+echo FastCompress Native Library Builder (AVX2)
+echo ========================================
 
-if not defined JAVA_HOME (
-    set "JAVA_HOME=C:\Program Files\Java\jdk-25"
-)
-set "JNI_INCLUDE=%JAVA_HOME%\include"
-set "JNI_WIN=%JAVA_HOME%\include\win32"
+set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installerswhere.exe"
+if not exist "%VSWHERE%" set "VSWHERE=%ProgramFiles%\Microsoft Visual Studio\Installerswhere.exe"
 
-set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
-
-if not exist "%VSWHERE%" (
-    echo ERROR: vswhere.exe not found. Install Visual Studio 2019+.
-    exit /b 1
-)
-
-for /f "usebackq tokens=*" %%i in (`"%VSWHERE%" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do (
-    set "VS_PATH=%%i"
+if exist "%VSWHERE%" (
+    for /f "usebackq tokens=*" %%i in (`"%VSWHERE%" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do (
+        set "VS_PATH=%%i"
+    )
 )
 
 if not defined VS_PATH (
-    echo ERROR: Visual Studio with C++ tools not found.
+    if exist "C:\Program Files\Microsoft Visual Studio\18\Community" set "VS_PATH=C:\Program Files\Microsoft Visual Studio\18\Community"
+)
+
+if not defined VS_PATH (
+    echo [ERROR] Visual Studio with C++ tools not found!
     exit /b 1
 )
 
 echo Found Visual Studio at: %VS_PATH%
 
-REM Setup build environment
-call "%VS_PATH%\VC\Auxiliary\Build\vcvars64.bat"
-if errorlevel 1 (
-    echo ERROR: Failed to setup VC environment
-    exit /b 1
+if not defined JAVA_HOME (
+    if exist "C:\Program Files\Java\jdk-25.0.3" (
+        set "JAVA_HOME=C:\Program Files\Java\jdk-25.0.3"
+    ) else if exist "C:\Program Files\Java\jdk-21" (
+        set "JAVA_HOME=C:\Program Files\Java\jdk-21"
+    ) else if exist "C:\Program Files\Java\jdk-17" (
+        set "JAVA_HOME=C:\Program Files\Java\jdk-17"
+    )
 )
 
-REM Create build directory
-if not exist build mkdir build
+echo Using JAVA_HOME: %JAVA_HOME%
 
-REM Compile with AVX2 support
-echo Compiling FastCompress DLL...
-cl.exe /O2 /arch:AVX2 /EHsc /MD /LD /W3 /nologo ^
-    /I"%JNI_INCLUDE%" /I"%JNI_WIN%" ^
+call "%VS_PATH%\VC\Auxiliary\Build\vcvarsall.bat" x64
+
+if not exist "build" mkdir build
+if not exist "src\main\resources\native" mkdir "src\main\resources\native"
+if not exist "src\main\resources\win32-x86-64" mkdir "src\main\resources\win32-x86-64"
+if not exist "target\classes\native" mkdir "target\classes\native"
+
+cl.exe /nologo /O2 /arch:AVX2 /std:c++17 /MD /LD /D_CRT_SECURE_NO_WARNINGS ^
+    /I"%JAVA_HOME%\include" ^
+    /I"%JAVA_HOME%\include\win32" ^
+    /I"C:\Users\andre\Documents\2026-06-14-Work-FastJava\FastSIMD\src\main\native" ^
     native\fastcompress.cpp ^
-    /Fobuild\fastcompress.obj ^
-    /Febuild\fastcompress.dll ^
-    /link /MACHINE:X64
+    /Fo:build\fastcompress.obj ^
+    /link /DLL /OUT:build\fastcompress.dll user32.lib gdi32.lib shcore.lib advapi32.lib dwmapi.lib
 
 if errorlevel 1 (
-    echo ERROR: Compilation failed
+    echo [ERROR] Compilation failed!
     exit /b 1
 )
+
+copy /Y build\fastcompress.dll src\main\resources\native\fastcompress.dll
+copy /Y build\fastcompress.dll src\main\resources\win32-x86-64\fastcompress.dll
+copy /Y build\fastcompress.dll target\classes\native\fastcompress.dll
 
 echo.
-echo ===================================
-echo Build successful!
-echo Output: build\fastcompress.dll
-dir build\fastcompress.dll
-echo ===================================
-
-endlocal
+echo [SUCCESS] DLL built and copied to resources!

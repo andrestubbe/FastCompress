@@ -6,7 +6,7 @@
 
     <groupId>com.github.andrestubbe</groupId>
     <artifactId>FastCompress</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -41,6 +41,36 @@
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>1.36</version>
             <scope>test</scope>
+        </dependency>
+            <!-- FastSIMD Vector Engine -->
+        <dependency>
+            <groupId>com.github.andrestubbe</groupId>
+            <artifactId>FastSIMD</artifactId>
+            <version>0.1.3</version>
+        </dependency>
+        <!-- FastMemory Aligned Allocator -->
+        <dependency>
+            <groupId>com.github.andrestubbe</groupId>
+            <artifactId>FastMemory</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+        <!-- FastPointer Address Pointer -->
+        <dependency>
+            <groupId>com.github.andrestubbe</groupId>
+            <artifactId>FastPointer</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+        <!-- FastCore Native Loader -->
+        <dependency>
+            <groupId>com.github.andrestubbe</groupId>
+            <artifactId>FastCore</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+        <!-- FastBytes Byte Manipulation Engine -->
+        <dependency>
+            <groupId>com.github.andrestubbe</groupId>
+            <artifactId>FastBytes</artifactId>
+            <version>0.1.1</version>
         </dependency>
     </dependencies>
 
