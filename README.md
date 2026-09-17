@@ -46,6 +46,7 @@ public class Demo {
 - [Real-World Use Cases](#real-world-use-cases)
 - [Performance Benchmarks](#performance-benchmarks)
 - [API Reference](#api-reference)
+- [Technical Demos & Benchmarks](#technical-demos--benchmarks)
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Platform Support](#platform-support)
@@ -95,8 +96,8 @@ Standard Java `java.util.zip.GZIPOutputStream` and pure Java LZ4 libraries suffe
 In the official [JMH Benchmark](examples/Benchmark), `FastCompress` measured throughput for native LZ4 block compression:
 
 ```text
-Benchmark                               Mode  Cnt        Score   Error  Units
-JMH_Compress.benchmarkFastCompressLZ4  thrpt    2  8,791,831          ops/s
+Benchmark                           Mode  Cnt        Score   Error  Units
+Benchmark.benchmarkFastCompressLZ4  thrpt    2  8,791,831          ops/s
 ```
 
 > **8.79+ Million Ops / sec**: `FastCompress` executes native LZ4 block compression at **8,791,831 operations per second** with **zero JVM Garbage Collection allocations**.
@@ -114,6 +115,15 @@ JMH_Compress.benchmarkFastCompressLZ4  thrpt    2  8,791,831          ops/s
 - `hash64(byte[])` — Calculate 15+ GB/s xxHash64 checksum for byte array.
 - `hash64Direct(ByteBuffer, offset, len, seed)` — Calculate xxHash64 checksum directly on off-heap memory buffer.
 - `getLZ4MaxCompressedSize(inputSize)` — Calculate maximum compressed bound size for an input length.
+
+---
+
+## Technical Demos & Benchmarks
+
+| Case | Java Example | Launcher | Description |
+|:---|:---|:---|:---|
+| **Interactive Showcase Demo** | [Demo.java](examples/Demo/src/main/java/fastcompress/demo/Demo.java) | `run-demo.bat` | End-to-end interactive demonstration of AVX2 LZ4 block compression and xxHash64 data verification. |
+| **JMH Microbenchmark Suite** | [Benchmark.java](examples/Benchmark/src/main/java/fastcompress/benchmark/Benchmark.java) | `run-benchmark.bat` | Formal OpenJDK JMH throughput measurements across native compression and hashing engines. |
 
 ---
 
